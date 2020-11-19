@@ -1,16 +1,22 @@
 FROM node:12.16.3-alpine
 
-# Install pm2 as process manager
-RUN yarn global add pm2
-
 # Create app directory
 WORKDIR /app
 
+# Install pm2 as process manager
+RUN yarn global add pm2
+
+# Copy package.json to app directory
+COPY package.json .
+
+# Install app dependencies
+RUN yarn install
+
 # Copy packaged sources from build/ directory
-COPY . .
+COPY build/ .
 
 # Expose app API port
 EXPOSE 3100
 
 # Build the app for production
-CMD ["pm2-runtime", "build/server.js"]
+CMD ["pm2-runtime", "server.js"]
