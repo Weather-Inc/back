@@ -3,18 +3,15 @@ import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import * as dotenv from 'dotenv'
 
-// Private modules
-import config from './config/config'
-
 // Routes
 import V0IndexRouter from './services/v0/index.router'
 import { get404 } from './services/v0/error.router'
 
+dotenv.config()
+
 // Private variables
 const app = express()
 const port = process.env.PORT || 3100
-const c = process.env.production ? config.prod : config.dev
-dotenv.config()
 
 // Parse bodies of requests with bodies
 app.use(bodyParser.json());
