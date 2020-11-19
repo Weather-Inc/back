@@ -12,7 +12,7 @@ import { get404 } from './services/v0/error.router'
 
 // Private variables
 const app = express()
-const port = process.env.PORT || 3200
+const port = process.env.PORT || 3100
 const c = process.env.production ? config.prod : config.dev
 dotenv.config()
 
