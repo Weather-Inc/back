@@ -22,4 +22,5 @@ COPY build/ ./
 EXPOSE 3100
 
 # Build the app for production
-CMD ["pm2-runtime", "server.js"]
+# CMD ["pm2-runtime", "server.js"]
+CMD [ "npm", "run", "prod" ]
