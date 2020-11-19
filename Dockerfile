@@ -7,10 +7,10 @@ RUN yarn global add pm2
 WORKDIR /app
 
 # Copy packaged sources from build/ directory
-COPY build/ ./
+COPY . .
 
 # Expose app API port
 EXPOSE 3100
 
 # Build the app for production
-CMD ["pm2-runtime", "server.js"]
+CMD ["pm2-runtime", "build/server.js"]
